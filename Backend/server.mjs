@@ -18,10 +18,11 @@ const PORT = process.env.PORT || 8000;
 
 //making database schema
 const todoScheme = new mongoose.Schema({
-  id: String,
-  text: String,
+  id: { type: String },
+  text: { type: String, required: true },
 });
 
+//Model for schema
 const Todo = mongoose.model("todo", todoScheme);
 
 //api to post new todos into database
@@ -72,7 +73,7 @@ app.put("/todo/:id", async (req, res) => {
     res.json(updatedTodo);
   } catch (error) {
     console.error("Error updating todo:", error);
-    res.status(500).json({error:error.message})
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -86,3 +87,5 @@ connectDB()
   .catch((err) => {
     console.log("Database Connection Failed: ", err);
   });
+
+

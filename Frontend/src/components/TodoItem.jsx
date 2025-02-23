@@ -32,7 +32,7 @@ const TodoItem = ({ text, id, deleteTodo, updatingTodo }) => {
           </>
         )}
       </div>
-      <div className="flex gap-5 justify-center align-center ">
+      <div className="flex gap-5 justify-center items-center ">
         {isEditing ? (
           <>
             <FaSave
